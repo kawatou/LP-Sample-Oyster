@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="牡蠣小屋LPデザインサンプル" />
+  <title>海辺の牡蠣小屋 みなと｜LPデザインサンプル</title>
+  <style>
+    :root { --navy:#083a4a; --blue:#0b6074; --cream:#fffaf0; --ink:#17282d; --orange:#f06a2a; --gold:#e8ae46; --line:#dce7e6; }
+    * { box-sizing:border-box; }
+    html { background:#e7eff0; scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--cream); font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; line-height:1.65; }
+    .site { max-width:430px; margin:0 auto; overflow:hidden; background:var(--cream); box-shadow:0 16px 60px rgba(8,58,74,.18); }
+    .topbar { position:absolute; z-index:3; width:min(430px,100%); display:flex; align-items:center; justify-content:space-between; padding:16px 18px; color:#fff; font-size:12px; letter-spacing:.06em; }
+    .brand { display:flex; align-items:center; gap:7px; font-weight:800; }
+    .brand-mark { width:25px; height:25px; border:1.5px solid #fff; border-radius:50% 50% 47% 47%; display:grid; place-items:center; font-size:14px; }
+    .tel { padding:6px 10px; border:1px solid rgba(255,255,255,.8); border-radius:100px; font-weight:700; }
+    .hero { position:relative; min-height:600px; display:flex; align-items:flex-end; padding:0 22px 42px; color:#fff; background:linear-gradient(180deg,rgba(0,19,25,.06) 20%,rgba(0,18,24,.94) 93%),url("assets/oyster-grill-hero.png") center/cover; }
+    .hero::after { content:""; position:absolute; inset:auto -18% -66px; height:150px; background:var(--cream); border-radius:50% 50% 0 0 / 65% 65% 0 0; }
+    .hero-copy { position:relative; z-index:1; }
+    .eyebrow { display:inline-flex; gap:7px; align-items:center; padding:5px 10px; border-radius:999px; background:rgba(0,0,0,.28); border:1px solid rgba(255,255,255,.35); font-size:11px; font-weight:700; letter-spacing:.08em; }
+    h1 { margin:13px 0 11px; font-size:42px; line-height:1.18; letter-spacing:.04em; font-weight:900; text-shadow:0 2px 16px rgba(0,0,0,.38); }
+    .hero p { margin:0; font-size:14px; letter-spacing:.07em; font-weight:600; }
+    .intro { position:relative; z-index:1; padding:37px 24px 34px; text-align:center; }
+    .mini-title { display:block; color:var(--orange); font-size:11px; letter-spacing:.17em; font-weight:800; }
+    .intro h2,.section h2 { margin:7px 0 12px; color:var(--navy); font-size:25px; line-height:1.38; letter-spacing:.04em; }
+    .intro p { margin:0; font-size:14px; }
+    .value-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:9px; padding:0 16px 34px; }
+    .value { padding:13px 4px 10px; border-radius:12px; background:#eaf4f2; text-align:center; color:var(--navy); font-size:11px; font-weight:800; line-height:1.4; }
+    .value b { display:block; color:var(--orange); font-size:22px; line-height:1.25; }
+    .section { padding:36px 18px; }
+    .section-head { text-align:center; margin-bottom:21px; }
+    .section-head p { margin:0; font-size:13px; }
+    .commitment { background:var(--navy); color:#fff; }
+    .commitment h2 { color:#fff; }
+    .commitment .mini-title { color:#f5c55d; }
+    .commitment-card { padding:25px 22px; border:1px solid rgba(255,255,255,.22); border-radius:17px; background:rgba(255,255,255,.08); }
+    .commitment-card h3 { margin:0 0 6px; color:#ffe0a0; font-size:18px; }
+    .commitment-card p { margin:0; font-size:13px; }
+    .commitment-card + .commitment-card { margin-top:11px; }
+    .menu-card { overflow:hidden; display:grid; grid-template-columns:42% 1fr; min-height:142px; border-radius:15px; background:#fff; box-shadow:0 6px 20px rgba(18,56,61,.11); }
+    .menu-card + .menu-card { margin-top:13px; }
+    .menu-image { background:url("assets/oyster-grill-hero.png") center/cover; }
+    .menu-image.lemon { background-position:73% 57%; filter:saturate(.85) brightness(1.1); }
+    .menu-image.fire { background-position:38% 62%; filter:saturate(1.15) brightness(.9); }
+    .menu-info { padding:18px 14px; }
+    .menu-info small { color:var(--orange); font-weight:800; letter-spacing:.1em; font-size:10px; }
+    .menu-info h3 { margin:3px 0 4px; color:var(--navy); font-size:17px; line-height:1.4; }
+    .menu-info p { margin:0; font-size:12px; line-height:1.55; }
+    .price { display:block; margin-top:7px; color:var(--orange); font-size:16px; font-weight:900; }
+    .steps { padding:0; margin:0; list-style:none; counter-reset:step; }
+    .steps li { position:relative; padding:0 0 23px 55px; font-size:13px; }
+    .steps li::before { counter-increment:step; content:counter(step, decimal-leading-zero); position:absolute; left:0; top:-2px; color:var(--orange); font-size:23px; line-height:1; font-family:Georgia,serif; font-weight:700; }
+    .steps li:not(:last-child)::after { content:""; position:absolute; top:29px; bottom:4px; left:11px; border-left:1px dashed #9ec2bf; }
+    .steps strong { display:block; color:var(--navy); font-size:15px; }
+    .course { margin:0 18px; padding:26px 19px 22px; border-radius:16px; color:#fff; background:linear-gradient(128deg,#0b6074,#0d3d50); text-align:center; }
+    .course h3 { margin:5px 0 2px; font-size:22px; }
+    .course p { margin:0; font-size:12px; }
+    .course .course-price { display:block; margin:13px 0; color:#ffe2a1; font-size:27px; line-height:1; font-weight:900; }
+    .course .course-price small { font-size:12px; }
+    .outline { margin-top:28px; background:#fff; }
+    .info { display:grid; grid-template-columns:87px 1fr; padding:12px 0; border-bottom:1px solid var(--line); font-size:12px; }
+    .info dt { color:var(--blue); font-weight:800; }
+    .info dd { margin:0; }
+    .faq details { border-bottom:1px solid var(--line); }
+    .faq summary { padding:16px 28px 16px 0; list-style:none; position:relative; color:var(--navy); font-size:13px; font-weight:800; cursor:pointer; }
+    .faq summary::after { content:"+"; position:absolute; right:4px; color:var(--orange); font-size:22px; top:10px; }
+    .faq details[open] summary::after { content:"−"; }
+    .faq p { margin:0 0 16px; font-size:12px; }
+    .footer { padding:38px 20px 104px; background:#083a4a; text-align:center; color:#e2efef; font-size:11px; }
+    .footer b { display:block; margin-bottom:8px; color:#fff; font-size:17px; }
+    .reserve-bar { position:fixed; z-index:9; left:50%; bottom:0; transform:translateX(-50%); width:min(430px,100%); padding:10px 14px calc(10px + env(safe-area-inset-bottom)); background:rgba(255,250,240,.94); box-shadow:0 -8px 22px rgba(8,58,74,.15); }
+    .reserve-button { display:flex; align-items:center; justify-content:center; width:100%; padding:14px; border-radius:9px; color:#fff; background:var(--orange); text-decoration:none; font-size:15px; letter-spacing:.08em; font-weight:900; box-shadow:0 4px 0 #bf4415; }
+    @media (min-width:600px) { body { padding:34px 0; } .reserve-bar { bottom:18px; } }
+  </style>
+</head>
+<body>
+  <main class="site">
+    <header class="topbar"><div class="brand"><span class="brand-mark">貝</span>海辺の牡蠣小屋 みなと</div><span class="tel">TEL 092-XXX-XXXX</span></header>
+    <section class="hero">
+      <div class="hero-copy"><span class="eyebrow">福岡・糸島　船越漁港直送</span><h1>海のごちそうを、<br>豪快に。</h1><p>焼きたての牡蠣と、海辺で過ごす最高のひととき。</p></div>
+    </section>
+    <section class="intro"><span class="mini-title">OYSTER HUT MINATO</span><h2>今日いちばん旨い牡蠣を、<br>いちばん美味しい食べ方で。</h2><p>海を望む席で、ぷりっと濃厚な牡蠣を炭火で。<br>仲間と、家族と、心ほどける海鮮時間をどうぞ。</p></section>
+    <section class="value-grid"><div class="value"><b>漁港直送</b>毎朝仕入れ</div><div class="value"><b>炭火焼き</b>目の前で熱々</div><div class="value"><b>手ぶらでOK</b>道具・調味料完備</div></section>
+    <section class="section commitment">
+      <div class="section-head"><span class="mini-title">OUR COMMITMENT</span><h2>牡蠣へのこだわり</h2></div>
+      <article class="commitment-card"><h3>01　漁師さんから直接仕入れ</h3><p>その日の朝に水揚げされた牡蠣を中心に、身入りの良いものだけを厳選。濃厚な旨みを逃さずお届けします。</p></article>
+      <article class="commitment-card"><h3>02　香ばしい炭火で、いちばん旨く</h3><p>殻が開く瞬間の香りまでごちそう。スタッフが焼き加減もお手伝いするので、初めてでも安心です。</p></article>
+    </section>
+    <section class="section">
+      <div class="section-head"><span class="mini-title">RECOMMENDED MENU</span><h2>まずは、これをどうぞ。</h2><p>牡蠣だけじゃない、海の恵みをたっぷり。</p></div>
+      <article class="menu-card"><div class="menu-image"></div><div class="menu-info"><small>POPULAR No.1</small><h3>殻付き焼き牡蠣</h3><p>潮の香りとミルキーな甘みを、まずはそのままで。</p><span class="price">1kg　1,200円〜</span></div></article>
+      <article class="menu-card"><div class="menu-image lemon"></div><div class="menu-info"><small>RECOMMENDED</small><h3>牡蠣のバター醤油焼き</h3><p>香ばしいバター醤油が、濃厚な牡蠣にぴったり。</p><span class="price">780円</span></div></article>
+      <article class="menu-card"><div class="menu-image fire"></div><div class="menu-info"><small>SEAFOOD</small><h3>海鮮炭火焼き盛り</h3><p>ホタテ・エビ・サザエなど、旬の海鮮を豪快に。</p><span class="price">2,400円〜</span></div></article>
+    </section>
+    <section class="section" style="background:#edf6f5;">
+      <div class="section-head"><span class="mini-title">HOW TO ENJOY</span><h2>牡蠣小屋の楽しみ方</h2></div>
+      <ol class="steps"><li><strong>好きな海鮮を選ぶ</strong>まずは店頭で食べたい牡蠣や海鮮をチョイス。</li><li><strong>網の上でじっくり焼く</strong>殻が開いたら食べごろ。スタッフも焼き方をサポートします。</li><li><strong>熱々のうちに召し上がれ</strong>レモン・ポン酢・醤油など、お好みの味でどうぞ。</li></ol>
+    </section>
+    <section class="section"><div class="section-head"><span class="mini-title">COURSE PLAN</span><h2>満足度◎の宴会コース</h2></div></section>
+    <div class="course"><span>90分飲み放題付き</span><h3>牡蠣小屋満喫コース</h3><p>焼き牡蠣・海鮮炭火焼き・ごはんもの ほか全7品</p><span class="course-price">4,500円 <small>／お一人様（税込）</small></span><p>2名様より／前日までのご予約制</p></div>
+    <section class="section outline"><div class="section-head"><span class="mini-title">SHOP INFORMATION</span><h2>店舗情報・アクセス</h2></div><dl><div class="info"><dt>店名</dt><dd>海辺の牡蠣小屋 みなと</dd></div><div class="info"><dt>住所</dt><dd>福岡県糸島市船越 00-00<br>船越漁港より徒歩3分</dd></div><div class="info"><dt>営業時間</dt><dd>11:00〜17:00（L.O. 16:30）</dd></div><div class="info"><dt>定休日</dt><dd>不定休（営業カレンダーをご確認ください）</dd></div><div class="info"><dt>駐車場</dt><dd>あり／30台</dd></div></dl></section>
+    <section class="section faq"><div class="section-head"><span class="mini-title">FAQ</span><h2>よくあるご質問</h2></div><details><summary>予約は必要ですか？</summary><p>週末や連休は混み合うため、ご予約をおすすめしています。当日の空席もお気軽にお電話ください。</p></details><details><summary>子ども連れでも利用できますか？</summary><p>もちろんです。ご家族でゆっくりお楽しみいただける席をご用意しています。</p></details><details><summary>雨の日でも利用できますか？</summary><p>屋根付きの席をご用意していますので、雨の日も安心してお越しいただけます。</p></details></section>
+    <footer class="footer"><b>海辺の牡蠣小屋 みなと</b>このページはクラウドワークス提案用の架空店舗LPデザインサンプルです。</footer>
+  </main>
+  <div class="reserve-bar"><a class="reserve-button" href="#">空席を確認して予約する　→</a></div>
+</body>
+</html>
